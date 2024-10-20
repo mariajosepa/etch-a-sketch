@@ -1,52 +1,76 @@
 html, body {
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
 }
 
 .title{
-    text-align: center;
+  text-align: center;
 }
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
-    width: 900px;
-    height: 900px;
-    margin: 0 auto;
-    margin-top: 3em;
-    gap: 1.5px;
-    background-color: black;
-    padding: 10px; 
-    box-sizing: border-box; 
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  width: 900px;
+  height: 900px;
+  margin: 0 auto;
+  margin-top: 1em;
+  gap: 1.5px;
+  background-color: black;
+  padding: 10px; 
+  box-sizing: border-box; 
+  justify-content: space-around;
 }
 
 .grid-item {
-    flex: 1 0 calc(100%/16 - 1.5px);
-    background-color: white;
-    transition: background-color 0.4s ease;
+  opacity: 1;
+  flex: 1 0 calc(100%/16 - 1.5px);
+  background-color: white;
 }
-
-.grid-item:hover{
-    background-color: blue;
-}
-
 
 .selection{
-    margin-top: 2em;
-    text-align: center;
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.selection > div {
+  height: 2.2em;
+  width: 5em;
+  line-height: 2.2em;
+  background-color: aquamarine;;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.selection > div.clicked{
+  background-color: lightblue;
+}
+
+/* Add this explicit rule */
+#update:hover{
+  background-color: lightblue;
 }
 
 #dimension{
-    height: 1.5em;
-    width: 5em;
+
+  margin-left: -2em;
 }
 
+
 #update{
-    height: 2em;
-    width: 8em;
+  height: 3em;
+  width: 8em;
+  background-color: aquamarine;
+  cursor: pointer;
+  margin-left: -2em;
 }
