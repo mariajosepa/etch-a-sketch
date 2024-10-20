@@ -59,6 +59,7 @@ grid.addEventListener("mouseover",(event)=>{
     }else
     {
         if (rainbow.classList.contains('clicked')){
+            event.target.style.opacity = "1.0";
             rainbowUp(event);
         }else{
             event.target.style.backgroundColor = "grey";
