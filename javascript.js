@@ -26,32 +26,50 @@ document.addEventListener("DOMContentLoaded",() =>{
 
 })
 
+const rainbowUp = (event) => {
+    event.target.style.backgroundColor = generateRandomColor();
+    event.target.classList.add('painted');
+}
+
+const darkenUp = (event) => {
+    // Get current opacity
+    let currentOpacity = parseFloat(getComputedStyle(event.target).opacity);
+
+    // Decrease opacity by 10%, ensuring it doesn't go below 0
+    currentOpacity = Math.max(0, currentOpacity - 0.1); // Ensure opacity doesn't go below 0
+
+    // Apply the updated opacity
+    event.target.style.opacity = currentOpacity;
+}
+
+
 //we use this to change the color of hovered over
 grid.addEventListener("mouseover",(event)=>{
 
   if (event.target.classList.contains("grid-item")){
 
+    if (rainbow.classList.contains('clicked') && darken.classList.contains('clicked')) {
 
-    if (rainbow.classList.contains('clicked')){
-      event.target.style.opacity = "1.0";
-      event.target.style.backgroundColor = generateRandomColor();
-      event.target.classList.add('painted');
-    }else{
-      event.target.style.backgroundColor = "grey";
-      event.target.classList.add('painted');
+        if (event.target.classList.contains('painted')) {
+            darkenUp(event);
+        }else{
+            rainbowUp(event);
+        }
+        
+    }else
+    {
+        if (rainbow.classList.contains('clicked')){
+            rainbowUp(event);
+        }else{
+            event.target.style.backgroundColor = "grey";
+            event.target.classList.add('painted');
+        }
+
+        if (darken.classList.contains('clicked')) {
+            darkenUp(event);
+        }
     }
 
-    if (darken.classList.contains('clicked')) {
-      // Get current opacity
-      let currentOpacity = parseFloat(getComputedStyle(event.target).opacity);
-
-      // Decrease opacity by 10%, ensuring it doesn't go below 0
-      currentOpacity = Math.max(0, currentOpacity - 0.1); // Ensure opacity doesn't go below 0
-
-      // Apply the updated opacity
-      event.target.style.opacity = currentOpacity;
-    }
-  
 
      
   }
@@ -67,7 +85,7 @@ const changeGrid = (dimension) => {
         const gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
         grid.appendChild(gridItem);        
-        gridItem.style.flex = `1 0 calc(100% / ${dimension} - 1.5px)`;
+        gridItem.style.flex = `1 0 calc(100% / ${dimension} - 4px)`;
       }
 }
 
@@ -82,7 +100,7 @@ update.addEventListener("click", () => {
 });
 
 selection.addEventListener("click", (event) =>{
-    if (event.target.id === "rainbow" || event.target.id === "darken" || event.target.id === "update"){
+    if (event.target.id === "rainbow" || event.target.id === "darken"){
         event.target.classList.toggle("clicked");
     }
 });
