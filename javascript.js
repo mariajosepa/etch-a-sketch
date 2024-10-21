@@ -104,8 +104,11 @@ update.addEventListener("click", () => {
 });
 
 selection.addEventListener("click", (event) =>{
-    if (event.target.id === "rainbow" || event.target.id === "darken"){
-        event.target.classList.toggle("clicked");
+    if (event.target.id === "rainbow-img") {
+        rainbow.classList.toggle("clicked");
+    }
+    if (event.target.id === "eraser-img") {
+        darken.classList.toggle("clicked");
     }
 });
 

@@ -11,10 +11,13 @@ body{
     background-image: url('./assets/background.webp');
     background-repeat: no-repeat;
     background-size: cover;
+    font-family: 'Raleway', sans-serif;
 }
 
 .title{
   text-align: center;
+  font-weight: 900;
+  color: rgb(0, 0, 0);
 }
 
 .grid {
@@ -50,17 +53,41 @@ body{
 }
 
 .selection > div {
-  height: 2.2em;
+  height: 3.9em;
   width: 5em;
   line-height: 2.2em;
   background-color: aquamarine;;
   text-align: center;
   cursor: pointer;
   border: 2px solid black;
+  font-weight: 700;
 }
+
+#rainbow-img {
+    width: 100%;
+    height: auto;
+    margin-top: -0.4em;
+}
+
+#eraser-img{
+    width: 100%;
+    height: auto;
+    margin-left: -0.1em;
+    margin-top: -0.9em;
+    transform: rotate(45deg);
+}
+
 
 .selection > div.clicked{
   background-color: lightblue;
+}
+
+.selection > label {
+    font-size: 20px;
+    font-weight: 700;
+    background-color: aquamarine;
+    line-height: 1em;
+    padding: 0.2em;
 }
 
 /* Add this explicit rule */
@@ -75,9 +102,11 @@ body{
 
 
 #update{
-  height: 3em;
+  height: 3.8em;
   width: 8em;
   background-color: aquamarine;
   cursor: pointer;
-  margin-left: -2em;
+  margin-left: -1em;
+  font-weight: 800;
+  font-size: 16px;
 }
