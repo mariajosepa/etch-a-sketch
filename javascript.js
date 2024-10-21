@@ -42,6 +42,13 @@ const darkenUp = (event) => {
     event.target.style.opacity = currentOpacity;
 }
 
+const greyUp = (event) => {
+    event.target.style.opacity = "1.0";
+    event.target.style.backgroundColor = "grey";
+    event.target.classList.add('painted');
+}
+
+
 
 //we use this to change the color of hovered over
 grid.addEventListener("mouseover",(event)=>{
@@ -61,19 +68,15 @@ grid.addEventListener("mouseover",(event)=>{
         if (rainbow.classList.contains('clicked')){
             event.target.style.opacity = "1.0";
             rainbowUp(event);
-        }else{
-            event.target.style.backgroundColor = "grey";
-            event.target.classList.add('painted');
-        }
-
-        if (darken.classList.contains('clicked')) {
+        }else if(darken.classList.contains('clicked')){
             darkenUp(event);
+        }  
+        else{
+            greyUp(event);
         }
-    }
-
-
-     
+    }  
   }
+
 });
 
 const changeGrid = (dimension) => {
