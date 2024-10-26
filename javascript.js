@@ -1,10 +1,11 @@
-
 grid = document.querySelector(".grid");
 dimension = document.getElementById('dimension');
 update = document.getElementById('update');
 rainbow = document.getElementById('rainbow');
 darken = document.getElementById('darken');
+clear = document.getElementById('clear');
 selection = document.querySelector('.selection');
+clickSound = new Audio('assets/click.mp3');
 
 
 const generateRandomColor = () => {
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded",() =>{
     const gridItem = document.createElement("div");
     gridItem.classList.add("grid-item");
     grid.appendChild(gridItem);
+    
   }
 
 })
@@ -47,8 +49,6 @@ const greyUp = (event) => {
     event.target.style.backgroundColor = "grey";
     event.target.classList.add('painted');
 }
-
-
 
 //we use this to change the color of hovered over
 grid.addEventListener("mouseover",(event)=>{
@@ -94,6 +94,7 @@ const changeGrid = (dimension) => {
 }
 
 update.addEventListener("click", () => {
+    clickSound.play();
     if (dimension.value > 100 || dimension.value < 0 || dimension.value === ""){
 
         alert("Grid dimension must be an integer from 1-100");
@@ -106,11 +107,26 @@ update.addEventListener("click", () => {
 selection.addEventListener("click", (event) =>{
     if (event.target.id === "rainbow-img") {
         rainbow.classList.toggle("clicked");
+        clickSound.play();
     }
     if (event.target.id === "eraser-img") {
+        clickSound.play();
         darken.classList.toggle("clicked");
     }
-});
+    if (event.target.id === "clear" || event.target.id === "trash-img") {
+        clickSound.play();
+        const gridItems = document.querySelectorAll('.grid-item');
+        gridItems.forEach((item) => {
+          item.style.backgroundColor = "transparent";
+          item.style.opacity = "1.0";
+          item.classList.remove('painted');
+      })
+    }
+  }
+);
+
+
+
 
 
 

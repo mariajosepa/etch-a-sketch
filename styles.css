@@ -14,10 +14,15 @@ body{
     font-family: 'Raleway', sans-serif;
 }
 
+.header {
+    justify-content: center;
+    gap: 3em;
+}
+
 .title{
   text-align: center;
   font-weight: 900;
-  color: rgb(0, 0, 0);
+  color: black;
 }
 
 .grid {
@@ -34,6 +39,7 @@ body{
   justify-content: space-around;
   border: 5px solid black;
 }
+
 
 .grid-item {
   flex: 1 0 calc(100%/16 - 4px);
@@ -77,17 +83,23 @@ body{
     transform: rotate(45deg);
 }
 
+#trash-img{
+    width: auto;
+    height: 80%;
+    margin-top: 0.4em;
+}
 
 .selection > div.clicked{
   background-color: lightblue;
 }
 
 .selection > label {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 700;
     background-color: aquamarine;
     line-height: 1em;
     padding: 0.2em;
+    width: 7em;
 }
 
 /* Add this explicit rule */
@@ -95,11 +107,13 @@ body{
   background-color: lightblue;
 }
 
-#dimension{
-
-  margin-left: -2em;
+#clear:hover{
+  background-color: lightblue;
 }
 
+#dimension{
+  margin-left: -2em;
+}
 
 #update{
   height: 3.8em;
@@ -110,3 +124,4 @@ body{
   font-weight: 800;
   font-size: 16px;
 }
+
